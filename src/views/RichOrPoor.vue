@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="btn-wrapper">
-      <button id="btn1" @click="next">欧皇</button>
+      <button id="btn1" @click="luckOfKing">欧皇</button>
     </div>
     <div class="btn-wrapper">
       <button id="btn2" @click="next">非尊</button>
@@ -11,13 +11,19 @@
 
 <script>
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
   setup() {
     const router = useRouter();
+    const store = useStore();
     const next = () => {
       router.push({ path: "/addrich" });
     };
-    return { next };
+    const luckOfKing = () => {
+      store.commit("luck", 2);
+      router.push({ path: "/addrich" });
+    };
+    return { next, luckOfKing };
   },
 };
 </script>
