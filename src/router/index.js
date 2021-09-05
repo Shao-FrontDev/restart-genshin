@@ -4,6 +4,7 @@ import RichOrPoor from "../views/RichOrPoor.vue";
 import AddRich from "../views/AddRich.vue";
 import Start from "../views/Start.vue";
 import Prize from "../views/Prize.vue";
+import Bag from "../views/Bag.vue";
 
 import store from "../store";
 
@@ -23,9 +24,10 @@ const routes = [
   },
   {
     path: "/addrich",
-    name: "",
+    name: "addrich",
     component: AddRich,
   },
+  { path: "/bag", name: "bag", component: Bag },
   {
     path: "/start",
     name: "start",

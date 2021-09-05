@@ -2,7 +2,7 @@
   <div class="wrapper">
     <n-tooltip trigger="hover">
       <template #trigger>
-        <button id="btn1" @click="next">只要充钱，你就能变强</button>
+        <button id="btn1" @click="mahuateng">只要充钱，你就能变强</button>
       </template>
       每天160原石
     </n-tooltip>
@@ -19,18 +19,25 @@
 <script>
 import { NTooltip } from "naive-ui";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
   components: {
     NTooltip,
   },
   setup() {
     const router = useRouter();
+    const store = useStore();
     const next = () => {
+      router.push({ path: "/start" });
+    };
+    const mahuateng = () => {
+      store.commit("addMoney");
       router.push({ path: "/start" });
     };
     return {
       NTooltip,
       next,
+      mahuateng,
     };
   },
 };

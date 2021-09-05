@@ -4,6 +4,7 @@ export default createStore({
   state: {
     days: 1,
     stone: 170000,
+    userInfo: { luckValue: null, tuhao: false },
     prize: {
       FiveStarHeros: [
         "琴",
@@ -163,7 +164,10 @@ export default createStore({
   mutations: {
     nextDay(state) {
       state.days++;
-      state.stone = state.stone + 60;
+      state.stone = state.stone += state.userInfo.tuhao ? 160 : 60;
+    },
+    addMoney(state) {
+      state.userInfo.tuhao = true;
     },
     lotteryDraw(state, { count }) {
       state.stone -= count * 160;
@@ -230,7 +234,9 @@ export default createStore({
           let threePriceNumber = state.prize.ThreeStarWeapons.length;
           let luckNumber = random(1, threePriceNumber);
           let prize = state.prize.ThreeStarWeapons[luckNumber];
+
           const prizeResult = { prize, star: "three" };
+          state.backpack.weapons.push(prizeResult);
           state.prizeResult.push(prizeResult);
         } else if (arr[i] === "四星") {
           let arrFourStar = [
@@ -241,6 +247,11 @@ export default createStore({
           let luckNumber = random(1, fourPriceNumber);
           let prize = arrFourStar[luckNumber];
           const prizeResult = { prize, star: "four" };
+          if (state.prize.FourStarHeros.includes(prize)) {
+            state.backpack.heros.push(prizeResult);
+          } else {
+            state.backpack.weapons.push(prizeResult);
+          }
           state.prizeResult.push(prizeResult);
         } else if (arr[i] === "五星") {
           let allFiveStar = [

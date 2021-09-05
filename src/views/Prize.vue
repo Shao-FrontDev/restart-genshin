@@ -99,6 +99,9 @@ export default {
 .five {
   background-color: #f6bb52;
 }
+.three {
+  background-color: cornflowerblue;
+}
 
 .list-enter-active,
 .list-leave-active {

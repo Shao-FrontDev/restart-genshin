@@ -3,7 +3,7 @@
     <p>游戏天数：{{ days }}</p>
     <p>原石：{{ stone }}</p>
   </div>
-  <button id="btn3">背包</button>
+  <button id="btn3" @click="bag">背包</button>
   <button id="btn1" @click="nextOne">单抽</button>
 
   <button id="btn2" @click="nextTen">十连抽</button>
@@ -32,6 +32,11 @@ export default {
         path: "/prize/10",
       });
     };
+    const bag = () => {
+      router.push({
+        path: "/bag",
+      });
+    };
     const nextDay = () => {
       store.commit("nextDay");
     };
@@ -41,6 +46,7 @@ export default {
       days,
       nextDay,
       stone,
+      bag,
     };
   },
 };
