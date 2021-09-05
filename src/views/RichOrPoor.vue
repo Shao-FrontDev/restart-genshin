@@ -1,51 +1,47 @@
 <template>
-  <div>
-    <div id="title">原神重开模拟器</div>
-    <div id="subtitle">垃圾游戏 毁我青春</div>
-    <button id="mainbtn" @click="next">立即重开</button>
+  <div class="wrapper">
+    <div class="btn-wrapper">
+      <button id="btn1" @click="next">欧皇</button>
+    </div>
+    <div class="btn-wrapper">
+      <button id="btn2" @click="next">非尊</button>
+    </div>
   </div>
 </template>
 
 <script>
 import { useRouter } from "vue-router";
 export default {
-  name: "Home",
   setup() {
     const router = useRouter();
     const next = () => {
-      router.push({ path: "/selected" });
+      router.push({ path: "/addrich" });
     };
     return { next };
   },
 };
 </script>
 
-<style>
-#title {
-  position: fixed;
-  font-size: 3rem;
-  font-weight: 700;
-  top: 35%;
-  left: 50%;
-  white-space: nowrap;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #eeeeee;
-}
-#subtitle {
-  position: fixed;
-  font-size: 1rem;
-  font-weight: 700;
-  top: 45%;
-  left: 50%;
-  white-space: nowrap;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #eeeeee;
-}
-#mainbtn {
+<style scoped>
+#btn1 {
   position: fixed;
   top: 65%;
+  left: 50%;
+  padding: 0.5rem 1.5rem;
+  border: 1px #eeeeee solid;
+  border-radius: 0.2rem;
+  background-color: #393e46;
+  font-size: 1.6rem;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+  color: #eeeeee;
+}
+
+#btn2 {
+  position: fixed;
+  top: 35%;
   left: 50%;
   padding: 0.5rem 1.5rem;
   border: 1px #eeeeee solid;
