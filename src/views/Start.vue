@@ -9,6 +9,7 @@
   <button id="btn2" @click="nextTen">十连抽</button>
 
   <button id="btn4" @click="nextDay">下一天</button>
+  <button id="btn5" @click="clear">再次重生</button>
 </template>
 
 <script>
@@ -40,6 +41,10 @@ export default {
     const nextDay = () => {
       store.commit("nextDay");
     };
+    const clear = () => {
+      localStorage.clear();
+      router.push({ path: "/" });
+    };
     return {
       nextOne,
       nextTen,
@@ -47,6 +52,7 @@ export default {
       nextDay,
       stone,
       bag,
+      clear,
     };
   },
 };
@@ -111,6 +117,22 @@ export default {
   font-size: 1rem;
   white-space: nowrap;
   transform: translate(-50%, -50%);
+  cursor: pointer;
+  color: #eeeeee;
+  z-index: 2;
+}
+
+#btn5 {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.2rem;
+  background-color: #393e46;
+  transform: translateX(-50%);
+
+  font-size: 1rem;
+  white-space: nowrap;
   cursor: pointer;
   z-index: 2;
   color: #eeeeee;

@@ -1,18 +1,28 @@
 <template>
   <div class="wrapper">
-    <div class="btn-wrapper">
-      <button id="btn1" @click="luckOfKing">欧皇</button>
-    </div>
-    <div class="btn-wrapper">
-      <button id="btn2" @click="next">非尊</button>
-    </div>
+    <n-tooltip trigger="hover">
+      <template #trigger>
+        <button id="btn1" @click="luckOfKing">欧皇</button>
+      </template>
+      提升运气
+    </n-tooltip>
+
+    <n-tooltip trigger="hover">
+      <template #trigger>
+        <button id="btn2" @click="next">非尊</button>
+      </template>
+      普通运气
+    </n-tooltip>
   </div>
 </template>
 
 <script>
+import { NTooltip } from "naive-ui";
+
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 export default {
+  components: { NTooltip },
   setup() {
     const router = useRouter();
     const store = useStore();
