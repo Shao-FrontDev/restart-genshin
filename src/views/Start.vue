@@ -43,7 +43,7 @@ export default {
     };
     const clear = () => {
       localStorage.clear();
-      router.push({ path: "/" });
+      window.location.replace("/");
     };
     return {
       nextOne,
